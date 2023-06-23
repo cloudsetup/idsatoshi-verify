@@ -1,0 +1,14 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { AccountView } from '../components/Account/AccountView.tsx';
+
+import config from '../../site.config'
+
+const {
+	host,
+} = config
+---
+
+<Layout title={host}>
+  <AccountView host={host} client:only />
+</Layout>

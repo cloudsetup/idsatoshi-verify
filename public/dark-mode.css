@@ -1,0 +1,49 @@
+html.dark-mode {
+  background-color: #111111;
+  color: #dddddd;
+}
+
+html.dark-mode .dark-mode-toggle label {
+  background-color: #333333;
+}
+
+html.dark-mode .box {
+  background-color: #333333;
+}
+
+html.dark-mode small, .dark-mode .muted {
+  color: #aaaaaa;
+}
+
+html.dark-mode input {
+  background-color: #444444;
+  color: #dddddd;
+}
+
+html.dark-mode input::placeholder {
+  color: #aaaaaa;
+}
+
+html.dark-mode .toggle label {
+  background-color: #444444;
+}
+
+html.dark-mode .toggle label:after {
+  background-color: #dddddd;
+}
+
+html.dark-mode .toggle input:checked+label {
+  background: #F7931A;
+}
+
+html.dark-mode button {
+  color: #ffffff;
+}
+
+html.dark-mode button.secondary {
+  background: #444444;
+}
+
+html.dark-mode .modal-wrapper {
+  background: rgba(0, 0, 0, 0.75);
+}

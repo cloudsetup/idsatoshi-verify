@@ -1,0 +1,13 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HomeView from '../components/Home/HomeView.astro'
+import config from '../../site.config'
+
+const {
+	host,
+} = config
+---
+
+<Layout title={host}>
+	<HomeView />
+</Layout>

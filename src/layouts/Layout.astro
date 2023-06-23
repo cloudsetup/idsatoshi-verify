@@ -1,0 +1,372 @@
+---
+import config from '../../site.config'
+
+import Navigation from '../components/Layout/Navigation.astro';
+import Footer from '../components/Layout/Footer.astro';
+import Header from '../components/Layout/Header.astro';
+
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+
+const {
+  host,
+  slogan
+} = config
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <main>
+      <Navigation />
+      <Header host={host} slogan={slogan} />
+      <slot />
+      <Footer />
+    </main>
+  </body>
+</html>
+
+<style is:global>
+  @import url('/dark-mode.css');
+  :root {
+    --accent: 247, 147, 26;
+    --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #f7931a 30%, #a33db8 50%);
+  }
+  html {
+    font-family: system-ui, sans-serif;
+    background-color: #F6F6F6;
+    color: #333333;
+  }
+
+  small {
+    line-height: 130%;
+  }
+
+  small, .muted {
+    color: #999999;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+  }
+
+  main {
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 60ch;
+  }
+
+
+  code, .copy-input {
+    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+      Bitstream Vera Sans Mono, Courier New, monospace;
+  }
+
+  a {
+    color: rgb(var(--accent));
+  }
+
+  input[type=text] {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(var(--accent), 25%);
+    background: #F6F6F6;
+  }
+
+  input[disabled] {
+    opacity: 0.5;
+  }
+
+  input:focus-visible {
+    outline: 2px solid rgba(var(--accent), 75%);
+  }
+
+  button {
+    /* width: calc(100% - 1rem); */
+    background: var(--accent-gradient);
+    background-size: 400%;
+    background-position: 0%;
+    color: #444444;
+    border: none;
+    border-radius: 0.4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+
+  button.secondary {
+    background: #a33db8;
+    border: 1px solid rgba(var(--accent), 25%);
+    color: rgb(var(--accent));
+  }
+
+  button[disabled] {
+    cursor: default;
+    background: rgba(var(--accent), 25%);
+  }
+
+  strong, .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+
+  .error {
+    color: #ff6666;
+  }
+
+  .box {
+    line-height: 1.6;
+    border: 1px solid rgba(var(--accent), 25%);
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.4rem;
+    display: grid;
+  }
+
+  .user-form {
+    grid-row-gap: 1rem;
+    margin: 1rem 0;
+  }
+
+  .user-form .address {
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    grid-gap: 1ch;
+    align-items: center;
+    margin-right: 1ch;
+  }
+
+  .user-form input[type="text"] {
+    width: calc(100% - 1.1rem);
+  }
+
+  .user-form input[type="checkbox"] {
+    margin-left: 1rem;
+  }
+
+  .user-form button {
+    width: 100%;
+  }
+
+  .user-form-header {
+    border-bottom: 1px solid rgb(var(--accent));
+  }
+
+  .nip07-extension {
+    align-items: center;
+    display: grid;
+    grid-template-columns: auto min-content min-content;
+    gap: 1ch;
+  }
+
+  .nip07-extension button {
+    min-width: 9ch;
+  }
+
+  .registration-result {
+    grid-row-gap: 0;
+    margin: 1rem 0 0 0;
+  }
+
+  .registration-success p {
+    margin: 0 0 1rem 0;
+  }
+
+  .user-count {
+    margin-top: 2rem;
+  }
+
+  .copy-wrapper {
+    cursor: pointer;
+    position: relative;
+  }
+
+  .copy-wrapper.nip-05 {
+    margin: 1rem 0;
+  }
+
+  /* styles for the "Copied!" success animation */
+  .copy-wrapper .success {
+    position: absolute;
+    width: 100px;
+    left: 50%;
+    top: 0;
+    margin-left: -50px;
+    text-align: center;
+    padding: 0;
+  }
+
+  .success-enter {
+    top: 0;
+    opacity: 0;
+  }
+
+  .success-enter.success-enter-active {
+    top: -20px;
+    opacity: 1;
+    transition: top 250ms ease-out, opacity 250ms linear;
+  }
+
+  .success-exit.success-exit-active {
+    top: -20px;
+    opacity: 0;
+    transition: opacity 250ms ease-in;
+  }
+
+  .copy-box {
+    display: grid;
+    grid-gap: 8px;
+    grid-template-columns: 1fr min-content;
+    align-items: center;
+    padding: 4px 4px 4px 1ch;
+  }
+
+  .copy-box button {
+    padding: 6px;
+    width: 24px;
+    height: 24px;
+  }
+
+  .copy-box button img {
+    position: relative;
+    top: -1px;
+  }
+
+  .lnqr {
+    max-width: 300px;
+    border-radius: 0.5rem;
+    display: block;
+    margin: 2rem auto 0 auto;
+    border: 1px solid rgba(var(--accent), 25%);
+    background: #ffffff;
+    padding: 24px;
+    box-sizing: border-box;
+  }
+
+  /* checkbox toggle styles */
+  .toggle-container {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .toggle-container > label {
+    cursor: pointer;
+  }
+
+  .toggle input[type=checkbox] {
+    display: none;
+  }
+
+  .toggle label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 50px;
+    height: 25px;
+    background: #cccccc;
+    display: block;
+    border-radius: 25px;
+    position: relative;
+  }
+
+  .toggle label:after {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 23px;
+    height: 23px;
+    background: #fff;
+    border-radius: 23px;
+    transition: 0.3s;
+  }
+
+  .toggle input:checked + label {
+    background: #fbe377;
+  }
+
+  .toggle input:checked + label:after {
+    left: calc(100% - 1px);
+    transform: translateX(-100%);
+  }
+
+  .toggle label:active:after {
+    width: 32px;
+  }
+
+  .modal-wrapper {
+    background: rgba(200, 200, 200, 0.75);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-wrapper > * {
+    max-width: 50ch;
+  }
+
+  .danger {
+    font-weight: bold;
+    color: #ff6666;
+  }
+
+  .modal-delete-account button.delete,
+  .danger-zone button {
+    background: #ff6666;
+    color: #ffffff;
+  }
+
+  .modal-delete-account button.delete {
+    margin-top: 1ch;
+  }
+
+  .modal-delete-account button.delete[disabled] {
+    background: #c22e2e;
+    color: #dddddd;
+  }
+
+  .modal-delete-account button.close {
+    justify-self: end;
+    width: 2.5ch;
+    height: 2.5ch;
+    padding: 0;
+    border-radius: 100%;
+  }
+
+  .user-update-result {
+    margin-bottom: 1rem;
+  }
+
+  .user-form-header p {
+    line-height: 100%;
+  }
+
+  .login-error {
+    margin-top: 1rem;
+  }
+
+  .login-error .error {
+    font-weight: bold;
+  }
+</style>
