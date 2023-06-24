@@ -6,7 +6,7 @@ export default {
   registrationDisabled: false,
 
   // site slogan
-  slogan: "Free custom address for Nostr & LN Wallet.",
+  slogan: "Free custom address for Nostr & LN Wallet",
 
   // your donation LNURL
   donationLNUrl:
