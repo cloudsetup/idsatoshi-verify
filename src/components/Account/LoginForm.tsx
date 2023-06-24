@@ -53,7 +53,7 @@ export const LoginForm = ({ onLogin }: LoginFormProps) => {
   return (
     <>
       <section className="box">
-        <strong>Welcome back, nostrich!</strong>
+        <strong>Welcome back, Satoshi!</strong>
         <p>Login with a NIP-07 compatible browser extension.</p>
         <button onClick={handleClick}>Login</button>
       </section>
