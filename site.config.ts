@@ -1,6 +1,6 @@
 export default {
   // your domain name
-  host: "idsatoshi.com ⚡",
+  host: "idsatoshi.com",
 
   // set to true to disable registration site-wide
   registrationDisabled: false,
