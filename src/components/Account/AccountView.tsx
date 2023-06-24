@@ -176,7 +176,7 @@ export const AccountView = ({ host }: AccountViewProps) => {
         <div>
           <input
             type="text"
-            placeholder="example:satinychime50@walletofsatoshi.com"
+            placeholder="example: satinychime50@walletofsatoshi.com"
             maxLength={64}
             value={lightningAddress}
             onChange={(event) => handleInput("lightningAddress", event)}

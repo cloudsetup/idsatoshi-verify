@@ -251,7 +251,7 @@ export const RegistrationForm = ({ disabled, host }: RegistrationFormProps) => {
               <input
                 type="text"
                 placeholder={
-                  !users ? "loading…" : "example:satinychime50@walletofsatoshi.com"
+                  !users ? "loading…" : "example: satinychime50@walletofsatoshi.com"
                 }
                 maxLength={64}
                 disabled={formDisabled || formSubmitted}
