@@ -18,12 +18,13 @@ const { host, slogan } = Astro.props
 		)}
   </div>
 
-  <img src="favicon.png" alt="website icon" />
+<!-- <img src="favicon.png" alt="website icon" /> -->
+
 </header>
 
 <style>
 	:root {
-		--logo-size: 84px;
+		--logo-size: 64px;
 	}
 
   header {
@@ -34,7 +35,7 @@ const { host, slogan } = Astro.props
   }
 
 	h1 {
-		font-size: 4rem;
+		font-size: 3.5vw;
 		font-weight: 800;
 		margin: 0;
     background-size: 150% !important;
@@ -57,4 +58,20 @@ const { host, slogan } = Astro.props
 		background-size: 400%;
 		background-position: 0%;
 	}
+
+@media (max-width: 600px) {
+  header {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  h1 {
+    font-size: 7vw;
+  }
+
+  h3 {
+    font-size: 3.5vw;
+  }
+}
+
 </style>

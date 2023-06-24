@@ -1,12 +1,12 @@
 export default {
   // your domain name
-  host: "idsatoshi.com",
+  host: "idsatoshi.com ⚡",
 
   // set to true to disable registration site-wide
   registrationDisabled: false,
 
   // site slogan
-  slogan: "Free Custom Address For Nostr & LN Wallet.",
+  slogan: "Free custom address for Nostr & LN Wallet.",
 
   // your donation LNURL
   donationLNUrl:
